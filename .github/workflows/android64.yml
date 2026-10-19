@@ -16,14 +16,19 @@ jobs:
         uses: geode-sdk/build-geode-mod@main
         with:
           target: Android64
+          sdk: given
           build-config: Release
-          combine: true
-          configure-args: -DCMAKE_UNITY_BUILD=OFF
+          combine: false
+          bindings: geode-sdk/bindings
+          bindings-ref: main
+          configure-args: -DCMAKE_UNITY_BUILD=OFF -DGEODE_DISABLE_PRECOMPILED_HEADERS=ON
 
       - name: Upload build output
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: xdBot-plus-Android64-build
-          path: build/
+          path: |
+            output/
+            build/
           if-no-files-found: warn
