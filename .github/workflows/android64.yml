@@ -1,8 +1,25 @@
-name: Test workflow
+name: Build xdBot+ Android64
 'on':
-workflow_dispatch:
+  workflow_dispatch:
+
 jobs:
-test:
-runs-on: ubuntu-latest
-steps:
-- run: echo "YAML works"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Geode mod
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          target: Android64
+          build-config: Release
+          combine: true
+
+      - name: Upload build output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xdBot-plus-build-logs
+          path: build/
+          if-no-files-found: warn
