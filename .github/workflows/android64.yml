@@ -1,19 +1,13 @@
 name: Build xdBot+ Android64
-
-on:
+'on':
 workflow_dispatch:
-
-permissions:
-contents: read
 
 jobs:
 build:
-name: Build Android64
 runs-on: ubuntu-latest
-
 steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+- name: Checkout repository
+uses: actions/checkout@v4
 
   - name: Build Geode mod
     uses: geode-sdk/build-geode-mod@main
@@ -27,9 +21,5 @@ steps:
     uses: actions/upload-artifact@v4
     with:
       name: xdBot-plus-build-logs
-      path: |
-        build/CMakeCache.txt
-        build/build.ninja
-        build/**/*.geode
+      path: build/
       if-no-files-found: warn
-      retention-days: 7
