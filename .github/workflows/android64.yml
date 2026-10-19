@@ -1,6 +1,6 @@
 name: Build xdBot+ Android64
 
-'on':
+on:
 workflow_dispatch:
 
 jobs:
@@ -20,7 +20,7 @@ steps:
       combine: false
       bindings: SA20652/bindings
       bindings-ref: main
-      configure-args: -DCMAKE_UNITY_BUILD=OFF -DGEODE_DISABLE_PRECOMPILED_HEADERS=ON
+      configure-args: "-DCMAKE_UNITY_BUILD=OFF -DGEODE_DISABLE_PRECOMPILED_HEADERS=ON"
 
   - name: Upload build output
     if: always()
