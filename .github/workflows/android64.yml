@@ -8,25 +8,27 @@ contents: read
 
 jobs:
 build:
-name: Build Android64
 runs-on: ubuntu-latest
 
 steps:
   - name: Checkout repository
     uses: actions/checkout@v4
 
-  - name: Build Geode mod
+  - name: Build Android64
     uses: geode-sdk/build-geode-mod@main
     with:
       target: Android64
       build-config: Release
       combine: true
 
-  - name: Upload Geode package
+  - name: Upload build output
+    if: always()
     uses: actions/upload-artifact@v4
-    if: success()
     with:
-      name: xdBot-plus-Android64
-      path: build/**/*.geode
-      if-no-files-found: error
+      name: xdBot-plus-build-logs
+      path: |
+        build/CMakeCache.txt
+        build/build.ninja
+        build/**/*.geode
+      if-no-files-found: warn
       retention-days: 7
