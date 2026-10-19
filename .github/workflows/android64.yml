@@ -1,10 +1,13 @@
+
 name: Build xdBot+ Android64
+
 'on':
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -15,11 +18,12 @@ jobs:
           target: Android64
           build-config: Release
           combine: true
+          configure-args: -DCMAKE_UNITY_BUILD=OFF
 
       - name: Upload build output
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: xdBot-plus-build-logs
+          name: xdBot-plus-Android64-build
           path: build/
           if-no-files-found: warn
