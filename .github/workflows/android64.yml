@@ -1,31 +1,32 @@
-
 name: Build xdBot+ Android64
 
 on:
-  workflow_dispatch:
+workflow_dispatch:
+
+permissions:
+contents: read
 
 jobs:
-  build:
-    name: Build Android64
-    runs-on: ubuntu-latest
+build:
+name: Build Android64
+runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+steps:
+  - name: Checkout repository
+    uses: actions/checkout@v4
 
-      - name: Build Geode mod
-        uses: geode-sdk/build-geode-mod@main
-        with:
-          target: Android64
-          bindings: geode-sdk/bindings
-          bindings-ref: main
-          build-config: Release
-          combine: true
+  - name: Build Geode mod
+    uses: geode-sdk/build-geode-mod@main
+    with:
+      target: Android64
+      build-config: Release
+      combine: true
 
-      - name: Upload Geode package
-        uses: actions/upload-artifact@v4
-        if: success()
-        with:
-          name: xdBot-plus-Android64
-          path: build/**/*.geode
-          if-no-files-found: error
+  - name: Upload Geode package
+    uses: actions/upload-artifact@v4
+    if: success()
+    with:
+      name: xdBot-plus-Android64
+      path: build/**/*.geode
+      if-no-files-found: error
+      retention-days: 7
