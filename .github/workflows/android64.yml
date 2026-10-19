@@ -8,13 +8,14 @@ contents: read
 
 jobs:
 build:
+name: Build Android64
 runs-on: ubuntu-latest
 
 steps:
   - name: Checkout repository
     uses: actions/checkout@v4
 
-  - name: Build Android64
+  - name: Build Geode mod
     uses: geode-sdk/build-geode-mod@main
     with:
       target: Android64
