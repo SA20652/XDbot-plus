@@ -1,13 +1,13 @@
 {
 	"geode": "4.4.0",
 	"gd": {
-		"win": "2.2074",
-		"android": "2.2074"
+		"win": "2.208",
+		"android": "2.208"
 	},
 	"version": "2.4.1",
 	"id": "zilko.xdbot",
-	"name": "xdBot",
-	"developer": "Zilko",
+	"name": "xdBot plus",
+	"developer": "kitzkuro",
 	"description": "Best Free Bot fr",
 	"dependencies": [
 		{
