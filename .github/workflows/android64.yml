@@ -13,19 +13,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Build Geode mod
+      - name: Build the mod
         uses: geode-sdk/build-geode-mod@main
+        with:
+          bindings: geode-sdk/bindings
+          bindings-ref: main
+          build-config: Release
+          combine: true
+          target: Android64
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         if: success()
         with:
-          name: xdBot-plus-build
-          path: |
-            build/**/*.geode
-            build/**/*.so
-            build/**/*.dll
+          name: xdBot-plus-Android64
+          path: build/**/*.geode
           if-no-files-found: error
