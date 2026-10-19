@@ -3,9 +3,6 @@ name: Build xdBot+ Android64
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 jobs:
   build:
@@ -13,18 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Build the mod
+      - name: Build Geode mod
         uses: geode-sdk/build-geode-mod@main
         with:
+          target: Android64
           bindings: geode-sdk/bindings
           bindings-ref: main
           build-config: Release
           combine: true
-          target: Android64
 
-      - name: Upload build artifacts
+      - name: Upload Geode package
         uses: actions/upload-artifact@v4
         if: success()
         with:
