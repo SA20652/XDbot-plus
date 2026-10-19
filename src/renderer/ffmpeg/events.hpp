@@ -8,14 +8,11 @@ namespace ffmpeg::events {
 namespace impl {
 #define DEFAULT_RESULT_ERROR geode::Err("Event was not handled")
 
-    class CreateRecorderEvent : public geode::Event {
-    public:
-        CreateRecorderEvent() {m_ptr = nullptr;}
-        void setPtr(void* ptr) {m_ptr = ptr;}
-        void* getPtr() const {return m_ptr;}
-    private:
-        void* m_ptr;
-    };
+    class CreateRecorderEvent
+    : public geode::Event<CreateRecorderEvent, void(void*)> {
+public:
+    using Event::Event;
+};
 
     class DeleteRecorderEvent : public geode::Event {
     public:
