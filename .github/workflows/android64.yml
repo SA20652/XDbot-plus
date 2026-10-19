@@ -1,6 +1,6 @@
 name: Build xdBot+ Android64
 
-on:
+'on':
 workflow_dispatch:
 
 jobs:
