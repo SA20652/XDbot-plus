@@ -1,15 +1,12 @@
 name: Build xdBot+ Android64
-
-'on':
-workflow_dispatch:
+on: [workflow_dispatch]
 
 jobs:
 build:
 runs-on: ubuntu-latest
-
 steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+- name: Checkout repository
+uses: actions/checkout@v4
 
   - name: Build Geode mod
     uses: geode-sdk/build-geode-mod@main
