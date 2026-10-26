@@ -1,5 +1,34 @@
 #pragma once
 
+#include <Geode/Geode.hpp>
+#include <string>
+#include <thread>
+#include <mutex>
+#include <queue>
+#include <cmath>
+#include <vector>
+#include <map>
+#include <unordered_map>
+#include <unordered_set>
+#include <chrono>
+#include <cstdint>
+
+#include "renderer/renderer.hpp"
+#include "macro.hpp"
+
+using namespace geode::prelude;
+
+#define STATIC_CREATE(className, width, height) \
+    static className* create() { \
+        className* ret = new className(); \
+        if (ret->init(width, height)) { \
+            ret->autorelease(); \
+            return ret; \
+        } \
+        delete ret; \
+        return nullptr; \
+    }
+
 class Global {
 
     Global() {}
