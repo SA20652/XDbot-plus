@@ -11,8 +11,8 @@ class MacroCell : public CCNode {
 	std::filesystem::path path;
 	std::time_t date;
 
-	geode::Popup<>* menuLayer = nullptr;
-	geode::Popup<>* mergeLayer = nullptr;
+	geode::Popup* menuLayer = nullptr;
+geode::Popup* mergeLayer = nullptr;
 	CCLayer* loadLayer = nullptr;
 
 	bool isMerge = false;
