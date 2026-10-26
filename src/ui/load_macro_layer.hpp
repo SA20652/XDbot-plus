@@ -68,7 +68,7 @@ public:
 
 	static LoadMacroLayer* create(geode::Popup* layer, geode::Popup* layer2, bool autosaves);
 
-	bool setup(geode::Popup* layer, geode::Popup* layer2, bool autosaves) override;
+	bool setup(geode::Popup* layer, geode::Popup* layer2, bool autosaves);
 
 	static void open(geode::Popup* layer, geode::Popup* layer2, bool autosaves = false);
 
