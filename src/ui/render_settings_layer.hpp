@@ -2,7 +2,7 @@
 
 #include "../includes.hpp"
 
-class RenderSettingsLayer : public geode::Popup<>, public TextInputDelegate {
+class RenderSettingsLayer : public geode::Popup, public TextInputDelegate {
 	
 public:
 
@@ -20,7 +20,7 @@ public:
 	CCMenuItemToggler* onlySongToggle = nullptr;
 	CCMenuItemToggler* recordAudioToggle = nullptr;
 
-	Mod* mod = nullptr;
+	geode::Mod* mod = nullptr;
 
 private:
 
