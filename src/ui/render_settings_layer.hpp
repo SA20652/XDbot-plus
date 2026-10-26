@@ -8,9 +8,9 @@ public:
 
 	Slider* sfxSlider = nullptr;
 	Slider* musicSlider = nullptr;
-	TextInput* fadeInInput = nullptr;
-	TextInput* fadeOutInput = nullptr;
-	TextInput* extensionInput = nullptr;
+	geode::TextInput* fadeInInput = nullptr;
+	geode::TextInput* fadeOutInput = nullptr;
+	geode::TextInput* extensionInput = nullptr;
 
 	CCTextInputNode* argsInput = nullptr;
 	CCTextInputNode* audioArgsInput = nullptr;
